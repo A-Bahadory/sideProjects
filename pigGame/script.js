@@ -22,7 +22,8 @@ btnRoll.addEventListener("click", function () {
   const dice = Math.floor(Math.random() * 6 + 1);
 
   diceEl.classList.remove("hidden");
-  diceEl.src = `/07-Pig-Game/starter/dice-${dice}.png`;
+  diceEl.src = `/pigGame/dice-${dice}.png`;
+  //diceEl.src = `/07-Pig-Game/starter/dice-${dice}.png`;
 
   if (dice !== 1) {
     currentScore += dice;
