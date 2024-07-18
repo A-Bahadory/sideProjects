@@ -17,12 +17,12 @@ score1El.textContent = 0;
 diceEl.classList.add("hidden");
 
 const score = [0, 0];
-console.log(score);
 let currentScore = 0;
 let activePlayer = 0;
 
 const switchPlayer = function () {
-  document.getElementById(`current--${activePlayer}`).textContent = 0;
+  document.getElementById(`current--${activePlayer}`).textContent =
+    score[activePlayer] >= 10 ? "You win" : 0;
   currentScore = 0;
   activePlayer = activePlayer === 0 ? 1 : 0;
   player0El.classList.toggle("player--active");
@@ -45,10 +45,10 @@ btnRoll.addEventListener("click", function () {
 });
 
 btnHold.addEventListener("click", function () {
-  document.getElementById(`current--${activePlayer}`).textContent = 0;
+  score[activePlayer] += currentScore;
+
+  document.getElementById(`score--${activePlayer}`).textContent =
+    score[activePlayer];
   currentScore = 0;
-  activePlayer = activePlayer === 0 ? 1 : 0;
-  player0El.classList.toggle("player--active");
-  player1El.classList.toggle("player--active");
-  console.log("btn clicked");
+  switchPlayer();
 });
