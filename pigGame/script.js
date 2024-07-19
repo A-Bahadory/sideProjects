@@ -19,10 +19,10 @@ diceEl.classList.add("hidden");
 const score = [0, 0];
 let currentScore = 0;
 let activePlayer = 0;
+let playing = true;
 
 const switchPlayer = function () {
-  document.getElementById(`current--${activePlayer}`).textContent =
-    score[activePlayer] >= 10 ? "You win" : 0;
+  document.getElementById(`current--${activePlayer}`).textContent = 0;
   currentScore = 0;
   activePlayer = activePlayer === 0 ? 1 : 0;
   player0El.classList.toggle("player--active");
@@ -30,25 +30,38 @@ const switchPlayer = function () {
 };
 
 btnRoll.addEventListener("click", function () {
-  const dice = Math.floor(Math.random() * 6 + 1);
+  if (playing) {
+    const dice = Math.floor(Math.random() * 6 + 1);
 
-  diceEl.classList.remove("hidden");
-  diceEl.src = `/pigGame/dice-${dice}.png`;
+    diceEl.classList.remove("hidden");
+    diceEl.src = `/pigGame/dice-${dice}.png`;
 
-  if (dice !== 1) {
-    currentScore += dice;
-    document.getElementById(`current--${activePlayer}`).textContent =
-      currentScore;
-  } else {
-    switchPlayer();
+    if (dice !== 1) {
+      currentScore += dice;
+      document.getElementById(`current--${activePlayer}`).textContent =
+        currentScore;
+    } else {
+      switchPlayer();
+    }
   }
 });
 
 btnHold.addEventListener("click", function () {
-  score[activePlayer] += currentScore;
-
-  document.getElementById(`score--${activePlayer}`).textContent =
-    score[activePlayer];
-  currentScore = 0;
-  switchPlayer();
+  if (playing) {
+    score[activePlayer] += currentScore;
+    document.getElementById(`score--${activePlayer}`).textContent =
+      score[activePlayer];
+    currentScore = 0;
+    if (score[activePlayer] >= 10) {
+      playing = false;
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.add("player--winner");
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.remove("player--active");
+    } else {
+      switchPlayer();
+    }
+  }
 });
