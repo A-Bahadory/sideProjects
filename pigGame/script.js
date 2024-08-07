@@ -49,7 +49,6 @@ btnRoll.addEventListener("click", function () {
 btnHold.addEventListener("click", function () {
   if (playing) {
     score[activePlayer] += currentScore;
-    console.log(score, "thi is score log");
     document.getElementById(`score--${activePlayer}`).textContent =
       score[activePlayer];
     currentScore = 0;
@@ -69,10 +68,11 @@ btnHold.addEventListener("click", function () {
 });
 
 btnNew.addEventListener("click", function () {
-  console.log(activePlayer);
-  console.log(score[(0, 1)]);
   currentScore = 0;
-  document.getElementById("score--0").textContent = currentScore;
-  document.getElementById("score--1").textContent = currentScore;
+  playing = true;
+  document.getElementById("score--0").textContent = score[0] = 0;
+  document.getElementById("score--1").textContent = score[1] = 0;
+  player0El.classList.remove("player--winner");
+  player1El.classList.remove("player--winner");
   console.log("clicked");
 });
