@@ -34,7 +34,7 @@ btnRoll.addEventListener("click", function () {
     const dice = Math.floor(Math.random() * 6 + 1);
 
     diceEl.classList.remove("hidden");
-    diceEl.src = `/pigGame/dice-${dice}.png`;
+    diceEl.src = `dice-${dice}.png`;
 
     if (dice !== 1) {
       currentScore += dice;
@@ -49,6 +49,7 @@ btnRoll.addEventListener("click", function () {
 btnHold.addEventListener("click", function () {
   if (playing) {
     score[activePlayer] += currentScore;
+    console.log(score, "thi is score log");
     document.getElementById(`score--${activePlayer}`).textContent =
       score[activePlayer];
     currentScore = 0;
@@ -60,8 +61,18 @@ btnHold.addEventListener("click", function () {
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.remove("player--active");
+      diceEl.classList.add("hidden");
     } else {
       switchPlayer();
     }
   }
+});
+
+btnNew.addEventListener("click", function () {
+  console.log(activePlayer);
+  console.log(score[(0, 1)]);
+  currentScore = 0;
+  document.getElementById("score--0").textContent = currentScore;
+  document.getElementById("score--1").textContent = currentScore;
+  console.log("clicked");
 });
