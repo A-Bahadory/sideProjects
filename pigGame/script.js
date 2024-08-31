@@ -67,12 +67,12 @@ btnHold.addEventListener("click", function () {
   }
 });
 
-btnNew.addEventListener("click", function () {
-  currentScore = 0;
-  playing = true;
-  document.getElementById("score--0").textContent = score[0] = 0;
-  document.getElementById("score--1").textContent = score[1] = 0;
-  player0El.classList.remove("player--winner");
-  player1El.classList.remove("player--winner");
-  console.log("clicked");
-});
+// btnNew.addEventListener("click", function () {
+//   currentScore = 0;
+//   playing = true;
+//   document.getElementById("score--0").textContent = score[0] = 0;
+//   document.getElementById("score--1").textContent = score[1] = 0;
+//   player0El.classList.remove("player--winner");
+//   player1El.classList.remove("player--winner");
+//   console.log("clicked");
+// });

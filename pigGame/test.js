@@ -1,8 +1,8 @@
-const score = [0, 3, 5];
+// const score = [0, 3, 5];
 
-let activePlayer = 2;
-console.log((score[activePlayer] = 0));
-console.log(score);
+// let activePlayer = 2;
+// console.log((score[activePlayer] = 0));
+// console.log(score);
 //score[activePlayer] += 12;
 //console.log(score);
 
@@ -12,3 +12,15 @@ testArr[1] += "this is a new assignment";
 //console.log(testArr);
 
 //array indexing has used in this method
+
+let activePlayer = 4;
+
+activePlayer = activePlayer === 4 ? 3 : 4;
+
+// if (activePlayer === 0) {
+//   activePlayer = 8;
+// } else {
+//   activePlayer = 1;
+// }
+
+console.log(activePlayer);
