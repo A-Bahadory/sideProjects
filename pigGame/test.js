@@ -23,4 +23,25 @@ activePlayer = activePlayer === 4 ? 3 : 4;
 //   activePlayer = 1;
 // }
 
-console.log(activePlayer);
+//create random number
+//const randomNumber = Math.floor(Math.random() * 6 + 1);
+
+//get access to variable value out of function
+
+let holdCurrentScore = 0;
+
+function testFunction() {
+  randomNumber = Math.floor(Math.random() * 6 + 1);
+  holdCurrentScore += randomNumber;
+
+  console.log("click");
+}
+
+// Accessing holdCurrentScore outside the event listener function
+console.log("Initial score:", holdCurrentScore);
+
+// Simulate a button click
+testFunction();
+
+// After the simulated click
+console.log("Updated score:", holdCurrentScore);
