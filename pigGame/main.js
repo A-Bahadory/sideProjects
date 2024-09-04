@@ -9,7 +9,13 @@ let holdCurrentScore = 0;
 rollBtn.addEventListener("click", function () {
   randomNumber = Math.floor(Math.random() * 6 + 1);
   dicePic.src = `dice-${randomNumber}.png`;
-  holdCurrentScore += randomNumber;
-  currentScoreEl0.textContent = holdCurrentScore;
+  if (randomNumber !== 1) {
+    console.log(randomNumber);
+    holdCurrentScore += randomNumber;
+    currentScoreEl0.textContent = holdCurrentScore;
+  } else {
+    holdCurrentScore = 0;
+    currentScoreEl0.textContent = holdCurrentScore;
+  }
   console.log("click");
 });
