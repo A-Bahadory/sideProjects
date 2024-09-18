@@ -13,9 +13,9 @@ testArr[1] += "this is a new assignment";
 
 //array indexing has used in this method
 
-let activePlayer = 4;
+//let activePlayer = 4;
 
-activePlayer = activePlayer === 4 ? 3 : 4;
+//activePlayer = activePlayer === 4 ? 3 : 4;
 
 // if (activePlayer === 0) {
 //   activePlayer = 8;
@@ -45,3 +45,22 @@ testFunction();
 
 // After the simulated click
 console.log("Updated score:", holdCurrentScore);
+
+//switch player
+let activePlayer = 0;
+activePlayer = activePlayer === 4 ? 3 : 4;
+let currentScore = 0;
+
+function switchPla() {
+  const dice = Math.trunc(Math.random() * 6) + 1;
+  console.log(dice);
+
+  if (dice !== 1) {
+    currentScore += dice;
+    console.log(activePlayer, "dice in if statement");
+  } else {
+    activePlayer = activePlayer === 0 ? 1 : 0;
+    console.log(activePlayer, "else block");
+  }
+}
+switchPla();
